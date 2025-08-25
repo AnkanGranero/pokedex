@@ -1,23 +1,31 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
+import RoundedImageFrame from '@/app/components/roundedImageFrame';
 export default async function singlePokemon({ params }: { params: Promise<{ id: number }> }) {
   const searchId = (await params).id;
 
-  const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${searchId}`, { cache: 'no-store' });
-  const singlePokemon = await res.json();
-  console.log(singlePokemon.stats);
+  const pokeRes = await fetch(`https://pokeapi.co/api/v2/pokemon/${searchId}`);
+  const singlePokemon = await pokeRes.json();
+
+  const speciesRes = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${searchId}`);
+  const speciesInfo = await speciesRes.json();
 
   const { name, id, types, stats } = singlePokemon;
+  const { color: {name:colorName} } = speciesInfo;
 
   if (!name) notFound();
   return (
     <div className="border-8 border-blue-300 p-8 w-[25rem] flex flex-col items-center">
+      <RoundedImageFrame type={types[0].type.name}>
+
       <Image
+      className=''
         src={singlePokemon.sprites.front_default}
         height="300"
         width="300"
         alt={singlePokemon.name}
       ></Image>
+      </RoundedImageFrame>
       <p>#{id}</p>
       <h1>{singlePokemon.name}</h1>
       <ul>
