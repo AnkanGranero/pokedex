@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from 'next/link'
 import { randomId } from '@/lib/utils'
 import RandomPokemon from "../components/randomPokemon";
+import { Input } from "@/components/ui/input"
+
 export default function Home() {
   return (
     <main>
@@ -19,6 +21,10 @@ export default function Home() {
             Random Pokémon</button>
         </Link>
       </section>
+      <section className="flex justify-center p-10">
+        <Input className="w-2xl"></Input>
+      </section>
+
       <section className="text-center">
         <h2 className="text-4xl m-12">Featured Pokemon</h2>
         <ul className="flex justify-evenly">
