@@ -1,17 +1,18 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import RoundedImageFrame from '@/app/components/roundedImageFrame';
+import { getTypeColor } from '@/lib/pokemonColors';
 export default async function singlePokemon({ params }: { params: Promise<{ id: number }> }) {
   const searchId = (await params).id;
 
   const pokeRes = await fetch(`https://pokeapi.co/api/v2/pokemon/${searchId}`);
   const singlePokemon = await pokeRes.json();
-
-  const speciesRes = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${searchId}`);
-  const speciesInfo = await speciesRes.json();
-
   const { name, id, types, stats } = singlePokemon;
-  const { color: {name:colorName} } = speciesInfo;
+
+/*   const speciesRes = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${searchId}`);
+  const speciesInfo = await speciesRes.json();
+  const { color: {name:colorName} } = speciesInfo; */
+
 
   if (!name) notFound();
   return (
@@ -29,8 +30,8 @@ export default async function singlePokemon({ params }: { params: Promise<{ id: 
       <p>#{id}</p>
       <h1>{singlePokemon.name}</h1>
       <ul>
-        {types.map((type: { slot: string; type: { name: string } }) => {
-          return <li key={type.slot}>{type.type.name}</li>;
+        {types.map((item: { slot: string; type: { name: string } }) => {
+          return <li key={item.slot} style={{backgroundColor: getTypeColor(item.type.name)}} className='text-white p-2 rounded-xl'>{item.type.name}</li>;
         })}
       </ul>
       <ul>
