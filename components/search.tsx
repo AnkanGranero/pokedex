@@ -1,15 +1,14 @@
-"use client"
 import { Input } from "@/components/ui/input"
-import { useSearchParams } from 'next/navigation'
+import Form from "next/form"
 export default function Search() {
-    const searchParams = useSearchParams();
 
-    const search = searchParams.get('search')
+
+    
 
 
     return (
-        <form className="flex justify-center p-10">
-            <Input className="w-2xl"></Input>
-        </form>
+        <Form className="flex justify-center p-10" action="search">
+            <Input className="w-2xl" name="query"></Input>
+        </Form>
     )
-}
+}   
