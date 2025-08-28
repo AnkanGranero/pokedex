@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 /* 
 ---break--- */
 @custom-variant dark (&:is(.dark *));
@@ -93,9 +93,10 @@ h3 {
   --c2: var(--color-neutral-500);
   --c3: var(--color-neutral-700);
 
-  background: repeating-conic-gradient(from 30deg, #0000 0 120deg, var(--c3) 0 50%) calc(var(--s)/2) calc(var(--s)*tan(30deg)/2),
+  background: repeating-conic-gradient(from 30deg, #0000 0 120deg, var(--c3) 0 50%)
+      calc(var(--s) / 2) calc(var(--s) * tan(30deg) / 2),
     repeating-conic-gradient(from 30deg, var(--c1) 0 60deg, var(--c2) 0 120deg, var(--c3) 0 50%);
-  background-size: var(--s) calc(var(--s)*tan(30deg));
+  background-size: var(--s) calc(var(--s) * tan(30deg));
 }
 
 .btn-primary {
@@ -113,8 +114,8 @@ h3 {
   --spacing-xl: 4rem;
   --spacing-lg: 2rem;
   --spacing-md: 1rem;
-  --spacing-sm: .5rem;
-  --spacing-xs: .25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-xs: 0.25rem;
 
   --content-max-width: 56.25rem;
   --breakout-max-width: 75rem;
@@ -123,20 +124,28 @@ h3 {
 
   display: grid;
   grid-template-columns:
-    [full-width-start] minmax(var(--padding-inline), 1fr) [breakout-start] minmax(0, var(--breakout-size)) [content-start] min(100% - (var(--padding-inline) * 2),
-      var(--content-max-width)) [content-end] minmax(0, var(--breakout-size)) [breakout-end] minmax(var(--padding-inline), 1fr) [full-width-end];
+    [full-width-start] minmax(var(--padding-inline), 1fr) [breakout-start] minmax(
+      0,
+      var(--breakout-size)
+    ) [content-start] min(100% - (var(--padding-inline) * 2), var(--content-max-width))
+    [content-end] minmax(0, var(--breakout-size)) [breakout-end] minmax(var(--padding-inline), 1fr) [full-width-end];
 }
 
-.content-grid> :not(.breakout, .full-width),
-.full-width> :not(.breakout, .full-width) {
+
+
+.content-grid > :not(.breakout, .full-width),
+.full-width > :not(.breakout, .full-width) {
   grid-column: content;
 }
 
-.content-grid>.breakout {
+.content-grid > .breakout {
+  grid-column: breakout;
+}
+.full-width > .breakout {
   grid-column: breakout;
 }
 
-.content-grid>.full-width {
+.content-grid > .full-width {
   grid-column: full-width;
 
   display: grid;
