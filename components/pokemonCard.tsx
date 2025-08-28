@@ -6,7 +6,7 @@ export default function PokemonCard({ pokemon }: { pokemon: Pokemon }) {
 
     const { types, sprites, name, stats, id } = pokemon;
     return (
-        <div className="border-8 border-blue-300 p-8 w-[25rem] flex flex-col items-center rounded-xl bg-[#F1FDFF]">
+        <div className="border-8 border-blue-300 p-8 flex flex-col items-center rounded-xl bg-[#F1FDFF]">
             <RoundedImageFrame type={types[0].type.name}>
 
                 <Image

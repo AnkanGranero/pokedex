@@ -11,7 +11,7 @@ export function randomId(min: number = 0, max: number = 1000): number {
 }
 
 
-export async function fetchPokemon(id: number): Pokemon {
+export async function fetchPokemon(id: number): Promise<Pokemon> {
   const pokeRes = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
   return await pokeRes.json();
 }
