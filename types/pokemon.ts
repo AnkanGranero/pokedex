@@ -17,3 +17,8 @@ export type Pokemon = {
         front_default: string;
     };
 };
+
+export type StrippedPokemon = {
+    name: string,
+    url: string
+}
