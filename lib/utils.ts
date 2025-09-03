@@ -23,7 +23,8 @@ export async function getAllPokemon() {
   return results;
 }
 
-export async function pokemonSearch(query: string) {
+export async function pokemonSearch(query?: string) {
+  if (!query) return [];
   const allPokemons = await getAllPokemon();
   const hits = allPokemons.filter((pokemon: StrippedPokemon) =>
     pokemon.name.toLowerCase().includes(query.toLowerCase())

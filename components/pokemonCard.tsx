@@ -7,7 +7,7 @@ export default function PokemonCard({ pokemon }: { pokemon: Pokemon }) {
     const fallback = "/not-found.jpg"
     const { types, sprites, name, stats, id } = pokemon;
     return (
-        <div className="border-8 border-blue-300 p-8 flex flex-col items-center rounded-xl bg-[#F1FDFF]">
+        <div className="border-8 border-blue-300 p-8 flex flex-col items-center rounded-xl bg-[#F1FDFF] shadow-xl">
             <RoundedImageFrame type={types[0].type.name}>
 
                 <Image
