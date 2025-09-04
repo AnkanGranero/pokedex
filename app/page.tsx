@@ -4,6 +4,7 @@ import { randomId } from '@/lib/utils';
 import RandomPokemon from '../components/random-pokemon';
 import NavigationBar from '@/components/navigation-bar';
 import Search from '@/components/search-input'
+import Footer from '@/components/footer';
 
 export default function Home() {
   return (
@@ -27,7 +28,7 @@ export default function Home() {
         </Link>
       </section>
       <Search></Search>
-      <section className="text-center full-width bg-green bg-gradient-to-r from-purple-50 to-purple-100">
+      <section className="text-center full-width bg-green bg-gradient-to-r from-purple-50 to-purple-100 pb-40">
         <h2 className="text-4xl m-12">Featured Pokemon</h2>
         <ul className="grid grid-cols-4 gap-4 breakout">
           {Array.from({ length: 4 }).map((_, i) => (
@@ -37,6 +38,7 @@ export default function Home() {
           ))}
         </ul>
       </section>
+      <Footer/>
     </main>
   );
 }
