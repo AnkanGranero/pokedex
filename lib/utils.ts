@@ -17,15 +17,16 @@ export async function fetchPokemon(identifier: number | string): Promise<Pokemon
   return singlePokemon;
 }
 
-export async function getAllPokemon() {
-  const allPokemons = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1302');
+export async function getAllPokemon(limit: number = 1000) {
+  const allPokemons = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`);
   const { results } = await allPokemons.json();
   return results;
 }
 
-export async function pokemonSearch(query?: string) {
-  if (!query) return [];
-  const allPokemons = await getAllPokemon();
+export async function pokemonSearch(query: string = "") {
+  const limit = query? 1000 : 40;
+  
+  const allPokemons = await getAllPokemon(limit);
   const hits = allPokemons.filter((pokemon: StrippedPokemon) =>
     pokemon.name.toLowerCase().includes(query.toLowerCase())
   );

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { randomId } from '@/lib/utils';
 import RandomPokemon from '../components/randomPokemon';
 import NavigationBar from '@/components/NavigationBar';
-import Search from '@/components/search'
+import Search from '@/components/search-input'
 
 export default function Home() {
   return (

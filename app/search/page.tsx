@@ -1,7 +1,8 @@
-import Search from '@/components/search';
-import SearchList from '@/components/searchList';
+import SearchInput from '@/components/search-input';
+import SearchList from '@/components/search-list';
 import { pokemonSearch } from '@/lib/utils';
 import { Suspense } from 'react';
+import LoadingPage from './loading';
 
 export default async function SearchResults({
   searchParams,
@@ -14,11 +15,13 @@ export default async function SearchResults({
   const results = pokemonSearch(query);
 
   return (
-    <div className="content-grid bg-[#5ee05e]">
-      <Search query={query} />
-      <Suspense key={query} fallback={<p>loading...</p>}>
+    <div className="min-h-dvh bg-[#5ee05e] flex flex-col">
+      <section className='full-width bg-white'>
+      <SearchInput query={query} />
+      </section>
+    <Suspense key={query} fallback={<LoadingPage/>}>
         <SearchList pokemonList={results} />
-      </Suspense>
+      </Suspense>  
     </div>
   );
 }
