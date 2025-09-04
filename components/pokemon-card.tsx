@@ -1,7 +1,7 @@
 import { Pokemon } from "../types/pokemon";
 import Image from "next/image";
-import RoundedImageFrame from "./roundedImageFrame";
-import { getTypeColor } from "@/lib/pokemonColors";
+import RoundedImageFrame from "./rounded-image-frame";
+import { getTypeColor } from "@/lib/pokemon-colors";
 export default function PokemonCard({ pokemon }: { pokemon: Pokemon }) {
 
     const fallback = "/not-found.jpg"

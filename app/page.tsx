@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { randomId } from '@/lib/utils';
-import RandomPokemon from '../components/randomPokemon';
-import NavigationBar from '@/components/NavigationBar';
+import RandomPokemon from '../components/random-pokemon';
+import NavigationBar from '@/components/navigation-bar';
 import Search from '@/components/search-input'
 
 export default function Home() {

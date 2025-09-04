@@ -1,5 +1,5 @@
 import { fetchPokemon, randomId } from '@/lib/utils';
-import PokemonCard from './pokemonCard';
+import PokemonCard from './pokemon-card';
 
 export default async function randomPokemon() {
   let id = randomId();
