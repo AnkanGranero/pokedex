@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import PokemonCard from '@/components/pokemonCard';
+import PokemonCard from '@/components/pokemon-card';
 import { fetchPokemon } from '@/lib/utils';
 export default async function singlePokemon({ params }: { params: Promise<{ id: number }> }) {
 

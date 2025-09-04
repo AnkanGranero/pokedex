@@ -1,5 +1,5 @@
 
-import { getTypeColor } from "@/lib/pokemonColors"
+import { getTypeColor } from "@/lib/pokemon-colors"
 export default function RoundedImageFrame({ children, type }: { children: React.ReactNode, type: string }) {
     
     const color = getTypeColor(type);

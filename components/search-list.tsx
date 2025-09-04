@@ -1,6 +1,6 @@
 'use client';
 import { Pokemon, Filters, WeightFilter, PokemonType } from '@/types/pokemon';
-import PokemonCard from './pokemonCard';
+import PokemonCard from './pokemon-card';
 import { use, useMemo, useState } from 'react';
 import {
   DropdownMenu,
