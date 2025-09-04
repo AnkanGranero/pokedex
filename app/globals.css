@@ -23,6 +23,24 @@
   --color-dark: #624d4e;
   --color-steel: #60a1b8;
   --color-fairy: #ef70ef;
+
+  --animate-dots: dots 2s steps(2) infinite;
+
+  @keyframes dots {
+    0%,
+     20% {
+      content: "";
+    }
+    40% {
+      content: ".";
+    }
+    60% {
+      content: ".."
+    }
+     80%,100% {
+      content: "...";
+    }
+  }
 }
 
 @theme inline {
@@ -127,11 +145,10 @@ h3 {
     [full-width-start] minmax(var(--padding-inline), 1fr) [breakout-start] minmax(
       0,
       var(--breakout-size)
-    ) [content-start] min(100% - (var(--padding-inline) * 2), var(--content-max-width))
+    )
+    [content-start] min(100% - (var(--padding-inline) * 2), var(--content-max-width))
     [content-end] minmax(0, var(--breakout-size)) [breakout-end] minmax(var(--padding-inline), 1fr) [full-width-end];
 }
-
-
 
 .content-grid > :not(.breakout, .full-width),
 .full-width > :not(.breakout, .full-width) {
@@ -237,5 +254,17 @@ h3 {
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
