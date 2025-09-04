@@ -18,7 +18,9 @@ export default async function SearchResults({
   return (
     <div className="min-h-dvh bg-[#5ee05e] flex flex-col">
       <section className='full-width bg-white'>
-      <SearchInput query={query} />
+      <div className='content-grid'>
+        <SearchInput query={query} />
+        </div>
       </section>
     <Suspense key={query} fallback={<LoadingPage/>}>
         <SearchList pokemonList={results} pokemonTypes={pokemonTypes} />

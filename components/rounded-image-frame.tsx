@@ -6,7 +6,7 @@ export default function RoundedImageFrame({ children, type }: { children: React.
 
     return (
         <div className="border-8 rounded-full bg-white"
-            style={{ borderColor: color }}>
+            style={{ borderColor: `color-mix(in srgb, ${color} 40%, white 60%)` }}> 
             {children}
         </div >
     )

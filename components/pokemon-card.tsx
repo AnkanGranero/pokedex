@@ -7,7 +7,7 @@ export default function PokemonCard({ pokemon }: { pokemon: Pokemon }) {
     const fallback = "/not-found.jpg"
     const { types, sprites, name, stats, id } = pokemon;
     return (
-        <div className="border-8 border-blue-300 p-8 flex flex-col items-center rounded-xl bg-[#F1FDFF] shadow-xl">
+        <div className="relative border-8 border-blue-300 hover:border-blue-500 hover:z-10 p-8 flex flex-col items-center rounded-xl bg-[#F1FDFF] shadow-xl cursor-pointer animate-grow-out hover:animate-grow-in ">
             <RoundedImageFrame type={types[0].type.name}>
 
                 <Image
@@ -19,9 +19,9 @@ export default function PokemonCard({ pokemon }: { pokemon: Pokemon }) {
             </RoundedImageFrame>
             <p>#{id}</p>
             <h1>{name}</h1>
-            <ul className="flex">
+            <ul className="flex w-full justify-evenly">
                 {types.map((item: { slot: number; type: { name: string } }) => {
-                    return <li key={item.slot} style={{ backgroundColor: getTypeColor(item.type.name) }} className='text-white p-2 rounded-xl'>{item.type.name}</li>;
+                    return <li key={item.slot} style={{ backgroundColor: getTypeColor(item.type.name) }} className='text-white p-2 rounded-xl min-w-15 text-center'>{item.type.name}</li>;
                 })}
             </ul>
             <ul>
