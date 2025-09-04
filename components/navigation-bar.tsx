@@ -4,7 +4,7 @@ export default function NavigationBar() {
   const navLinks = [
     {
       name: 'Home',
-      url: '/home',
+      url: '/',
     },
     {
       name: 'Pokedex',

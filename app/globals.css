@@ -27,19 +27,47 @@
   --animate-dots: dots 2s steps(2) infinite;
 
   @keyframes dots {
+
     0%,
-     20% {
+    20% {
       content: "";
     }
+
     40% {
       content: ".";
     }
+
     60% {
       content: ".."
     }
-     80%,100% {
+
+    80%,
+    100% {
       content: "...";
     }
+  }
+
+  --animate-grow-in: grow-in 0.2s ease-out forwards;
+  --animate-grow-out: grow-out 0.2s ease-in-out forwards;
+
+  @keyframes grow-in {
+    0% {
+      transform: scale(1)
+    }
+
+    100% {
+      transform: scale(1.1);
+    }
+  }
+}
+
+@keyframes grow-out {
+  0% {
+    transform: scale(1.1)
+  }
+
+  100% {
+    transform: scale(1)
   }
 }
 
@@ -111,8 +139,7 @@ h3 {
   --c2: var(--color-neutral-500);
   --c3: var(--color-neutral-700);
 
-  background: repeating-conic-gradient(from 30deg, #0000 0 120deg, var(--c3) 0 50%)
-      calc(var(--s) / 2) calc(var(--s) * tan(30deg) / 2),
+  background: repeating-conic-gradient(from 30deg, #0000 0 120deg, var(--c3) 0 50%) calc(var(--s) / 2) calc(var(--s) * tan(30deg) / 2),
     repeating-conic-gradient(from 30deg, var(--c1) 0 60deg, var(--c2) 0 120deg, var(--c3) 0 50%);
   background-size: var(--s) calc(var(--s) * tan(30deg));
 }
@@ -142,27 +169,24 @@ h3 {
 
   display: grid;
   grid-template-columns:
-    [full-width-start] minmax(var(--padding-inline), 1fr) [breakout-start] minmax(
-      0,
-      var(--breakout-size)
-    )
-    [content-start] min(100% - (var(--padding-inline) * 2), var(--content-max-width))
-    [content-end] minmax(0, var(--breakout-size)) [breakout-end] minmax(var(--padding-inline), 1fr) [full-width-end];
+    [full-width-start] minmax(var(--padding-inline), 1fr) [breakout-start] minmax(0,
+      var(--breakout-size)) [content-start] min(100% - (var(--padding-inline) * 2), var(--content-max-width)) [content-end] minmax(0, var(--breakout-size)) [breakout-end] minmax(var(--padding-inline), 1fr) [full-width-end];
 }
 
-.content-grid > :not(.breakout, .full-width),
-.full-width > :not(.breakout, .full-width) {
+.content-grid> :not(.breakout, .full-width),
+.full-width> :not(.breakout, .full-width) {
   grid-column: content;
 }
 
-.content-grid > .breakout {
-  grid-column: breakout;
-}
-.full-width > .breakout {
+.content-grid>.breakout {
   grid-column: breakout;
 }
 
-.content-grid > .full-width {
+.full-width>.breakout {
+  grid-column: breakout;
+}
+
+.content-grid>.full-width {
   grid-column: full-width;
 
   display: grid;
@@ -254,17 +278,5 @@ h3 {
 
   body {
     @apply bg-background text-foreground;
-  }
-}
-
-@keyframes bounce {
-  0%,
-  100% {
-    transform: translateY(-25%);
-    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-  }
-  50% {
-    transform: none;
-    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }

@@ -58,7 +58,7 @@ export default function SearchList({ pokemonList , pokemonTypes }: { pokemonList
 
   return (
     <div className="content-grid">
-      <section className="mb-10 bg-white full-width py-5">
+      <section className="mb-10 bg-[#dcffff] full-width py-5">
         <div className="grid grid-cols-12 gap-4 ">
           <h2 className=" text-2xl">Filters</h2>
           <DropdownMenu>
