@@ -1,5 +1,5 @@
 'use client';
-import { Pokemon, POKEMONTYPES, Filters, WeightFilter } from '@/types/pokemon';
+import { Pokemon, Filters, WeightFilter, PokemonType } from '@/types/pokemon';
 import PokemonCard from './pokemonCard';
 import { use, useMemo, useState } from 'react';
 import {
@@ -16,8 +16,9 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import NotFound from '@/app/search/not-found';
 
-export default function SearchList({ pokemonList }: { pokemonList: Promise<Pokemon[]> }) {
+export default function SearchList({ pokemonList , pokemonTypes }: { pokemonList: Promise<Pokemon[]>, pokemonTypes: Promise<PokemonType[]> }) {
   const pokemons = use(pokemonList);
+  const types = use(pokemonTypes)
 
   const [filters, setFilters] = useState<Filters>({
     types: [],
@@ -67,17 +68,17 @@ export default function SearchList({ pokemonList }: { pokemonList: Promise<Pokem
             <DropdownMenuContent>
               <DropdownMenuLabel>Types</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              {POKEMONTYPES.map((type) => {
+              {types.map((type: PokemonType) => {
                 return (
                   <DropdownMenuCheckboxItem
-                    key={type}
-                    checked={filters.types.includes(type)}
+                    key={type.name}
+                    checked={filters.types.includes(type.name)}
                     onSelect={(e) => {
                       e.preventDefault();
-                      toggleType(type);
+                      toggleType(type.name);
                     }}
                   >
-                    {type}
+                    {type.name}
                   </DropdownMenuCheckboxItem>
                 );
               })}

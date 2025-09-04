@@ -24,11 +24,13 @@ export type StrippedPokemon = {
   url: string;
 };
 
-export const POKEMONTYPES = ['fire', 'water', 'grass', 'normal'] as const;
 export type WeightFilter = { operator: 'gte' | 'lte'; value: number };
 export type Filters = {
   types: string[];
   weight: WeightFilter;
 };
 
-export type PokemonType = (typeof POKEMONTYPES)[number];
+export type  PokemonType = {
+name: string;
+url: string;
+}

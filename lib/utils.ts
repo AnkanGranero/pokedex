@@ -1,6 +1,6 @@
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import { Pokemon, StrippedPokemon } from '@/types/pokemon';
+import { Pokemon, PokemonType, StrippedPokemon } from '@/types/pokemon';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -43,4 +43,15 @@ export async function pokemonSearch(query: string = "") {
   } catch (err) {
     return [];
   }
+}
+
+
+export async function getPokeTypes(): Promise<PokemonType[]>{
+  
+  const result = await fetch('https://pokeapi.co/api/v2/type/');
+  const json = await result.json()
+  const types = json.results
+  return types;
+  
+
 }
