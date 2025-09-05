@@ -2,7 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { randomId } from '@/lib/utils';
 import RandomPokemon from '../components/random-pokemon';
-import NavigationBar from '@/components/navigation-bar';
 import Search from '@/components/search-input'
 
 export default function Home() {
@@ -11,7 +10,7 @@ export default function Home() {
 
       <section className="full-width items-center gap-4 bg-gradient-to-br [background-image:linear-gradient(-10deg,_#C97FE4,_#AECDF6)] p-14">
         <h1 className="text-center mt-14 text-9xl font-semi-bold text-transparent bg-gradient-to-r from-purple-800 to-blue-800 bg-clip-text">
-          Gotta catch 'em all!
+          Gotta catch em all!
         </h1>
         <p
           className="text-center text-black text-xl grid "
