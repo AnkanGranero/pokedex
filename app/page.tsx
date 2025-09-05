@@ -20,7 +20,7 @@ export default function Home() {
         </p>
         <Link href={`single/${randomId()}`} className='flex justify-center'>
           <button className="btn-primary">
-            <Image src="/Dice.svg" width={25} height={25} alt="Dice" />
+            <Image src="/dice.svg" width={25} height={25} alt="Dice" />
             Random Pokémon
           </button>
         </Link>

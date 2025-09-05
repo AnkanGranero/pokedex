@@ -11,10 +11,10 @@ export default function Footer() {
       <p className="m-10 text-center text-2xl">explore the world of pokémon</p>
       <nav className="flex justify-center">
         <a href="">
-          <Image src="/Facebook.svg" alt="" width="300" height="300" className="w-auto mr-8"></Image>
+          <Image src="/facebook.svg" alt="" width="300" height="300" className="w-auto mr-8"></Image>
         </a>
         <a href="">
-          <Image src="/Instagram.svg" alt="" width="300" height="300" className="w-auto mr-8"></Image>
+          <Image src="/instagram.svg" alt="" width="300" height="300" className="w-auto mr-8"></Image>
         </a>
       </nav>
     </footer>
