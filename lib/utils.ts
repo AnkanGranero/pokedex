@@ -23,9 +23,9 @@ export async function getAllPokemon(limit: number = 1000) {
   return results;
 }
 
-export async function pokemonSearch(query: string = "") {
-  const limit = query? 1000 : 40;
-  
+export async function pokemonSearch(query: string = '') {
+  const limit = query ? 1000 : 40;
+
   const allPokemons = await getAllPokemon(limit);
   const hits = allPokemons.filter((pokemon: StrippedPokemon) =>
     pokemon.name.toLowerCase().includes(query.toLowerCase())
@@ -41,17 +41,14 @@ export async function pokemonSearch(query: string = "") {
     }
     return promiseData;
   } catch (err) {
+    console.log('Somethng went wrong', err);
     return [];
   }
 }
 
-
-export async function getPokeTypes(): Promise<PokemonType[]>{
-  
+export async function getPokeTypes(): Promise<PokemonType[]> {
   const result = await fetch('https://pokeapi.co/api/v2/type/');
-  const json = await result.json()
-  const types = json.results
+  const json = await result.json();
+  const types = json.results;
   return types;
-  
-
 }
