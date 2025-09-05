@@ -178,6 +178,7 @@ h3 {
   grid-column: content;
 }
 
+
 .content-grid>.breakout {
   grid-column: breakout;
 }
@@ -192,6 +193,12 @@ h3 {
   display: grid;
   grid-template-columns: inherit;
 }
+.full-width > .full-width {
+  grid-column: full-width;
+  display: grid;
+  grid-template-columns: inherit;
+}
+
 
 /* 
 ---break--- */

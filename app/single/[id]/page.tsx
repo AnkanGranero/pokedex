@@ -8,6 +8,10 @@ export default async function singlePokemon({ params }: { params: Promise<{ id: 
 
   if (!pokemon) notFound();
   return (
-    <PokemonCard pokemon={pokemon}></PokemonCard>
+    <div className='flex justify-center min-h-dvh items-center'>
+      <div className=''>
+        <PokemonCard pokemon={pokemon}></PokemonCard>
+      </div>
+    </div>
   );
 }
