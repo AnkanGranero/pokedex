@@ -9,22 +9,24 @@ export default async function SearchResults({
 }: {
   searchParams: Promise<{ [key: string]: string | undefined }>;
 }) {
-  
+
   const { query } = await searchParams;
-  
+
   const results = pokemonSearch(query);
   const pokemonTypes = getPokeTypes()
 
   return (
-    <div className="min-h-dvh bg-[#5ee05e] flex flex-col">
+
+    <div className="full-width min-h-full grid grid-rows-[auto,1fr] bg-[#5ee05e]">
       <section className='full-width bg-white'>
-      <div className='content-grid'>
         <SearchInput query={query} />
-        </div>
       </section>
-    <Suspense key={query} fallback={<LoadingPage/>}>
-        <SearchList pokemonList={results} pokemonTypes={pokemonTypes} />
-      </Suspense>  
+      <div className="full-width">
+        <Suspense key={query} fallback={<LoadingPage />}>
+          <SearchList pokemonList={results} pokemonTypes={pokemonTypes} />
+        </Suspense>
+      </div>
     </div>
+
   );
 }

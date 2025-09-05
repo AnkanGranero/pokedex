@@ -2,7 +2,7 @@ import Image from 'next/image';
 export default function NotFound() {
 
   return (
-    <main className="flex items-center justify-center flex-col flex-1">
+    <main className="flex items-center justify-center flex-col flex-1 min-h-[70vh]">
       <Image
         src="/no-pokemon-found.png"
         height={300}

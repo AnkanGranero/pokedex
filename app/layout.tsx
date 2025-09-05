@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Jaldi, Jersey_10 } from "next/font/google";
 import "./globals.css";
 import NavigationBar from "@/components/navigation-bar";
+import Footer from "@/components/footer";
 
 const jaldi = Jaldi({
   subsets: ["latin"],
@@ -28,12 +29,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${jaldi.variable} ${jersey.variable} antialiased`}
+        className={`${jaldi.variable} ${jersey.variable} antialiased min-h-dvh grid grid-rows-[auto,1fr,auto]`}
       >
         <header className="content-grid">
           <NavigationBar ></NavigationBar>
         </header>
-        {children}
+        <main className="min-h-0 content-grid">
+
+            {children}
+
+        </main>
+        <div className="content-grid">
+        <Footer />
+        </div>
       </body>
     </html>
   );

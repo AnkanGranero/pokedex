@@ -19,7 +19,7 @@ export default function PokemonCard({ pokemon }: { pokemon: Pokemon }) {
             </RoundedImageFrame>
             <p>#{id}</p>
             <h1>{name}</h1>
-            <ul className="flex w-full justify-evenly">
+            <ul className="flex w-[70%] justify-evenly">
                 {types.map((item: { slot: number; type: { name: string } }) => {
                     return <li key={item.slot} style={{ backgroundColor: getTypeColor(item.type.name) }} className='text-white p-2 rounded-xl min-w-15 text-center'>{item.type.name}</li>;
                 })}

@@ -57,7 +57,7 @@ export default function SearchList({ pokemonList , pokemonTypes }: { pokemonList
   }, [pokemons, filters]);
 
   return (
-    <div className="content-grid">
+    <div className="full-width pb-40">
       <section className="mb-10 bg-[#dcffff] full-width py-5">
         <div className="grid grid-cols-12 gap-4 ">
           <h2 className=" text-2xl">Filters</h2>
@@ -120,7 +120,7 @@ export default function SearchList({ pokemonList , pokemonTypes }: { pokemonList
       </section>
 
       {filteredPokemons.length ? (
-        <ul className="grid grid-cols-4 content gap-4">
+        <ul className="grid grid-cols-4 breakout gap-4">
           {filteredPokemons.map((p: Pokemon) => {
             return (
               <li key={p.name}>
